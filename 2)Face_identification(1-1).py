@@ -44,6 +44,6 @@ if not face_found:
     print("User face not found in the image.")
 
 # Show the image with detected faces (if any)
-# cv2.imshow('Result', target_image)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+cv2.imshow('Result', target_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
