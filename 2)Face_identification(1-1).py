@@ -8,7 +8,7 @@ app = FaceAnalysis()
 app.prepare(ctx_id=0, det_size=(640, 640))
 
 # Load and read the known user's face image
-known_image_path = r'training_image\3.jpg'  # Replace with your known user image
+known_image_path = r'training_image\raj.png'  # Replace with your known user image
 known_image = cv2.imread(known_image_path)
 
 # Detect and get the embedding of the known user's face
@@ -17,7 +17,7 @@ if len(known_face) > 0:
     known_embedding = known_face[0].embedding  # Get the embedding of the first detected face
 
 # Load and read the target image where we want to check for the user's face
-target_image_path = r'dataset/6.png'  # Replace with the target image path
+target_image_path = r'dataset/25.jpg'  # Replace with the target image path
 target_image = cv2.imread(target_image_path)
 
 # Detect faces in the target image
@@ -32,7 +32,7 @@ for face in target_faces:
     similarity = np.dot(known_embedding, target_embedding) / (np.linalg.norm(known_embedding) * np.linalg.norm(target_embedding))
     print(similarity)
     # Threshold for determining if faces are a match (adjustable, around 0.6 to 0.7 is usually good)
-    if similarity > 0.45:  # 1 means identical, so 0.6 or above is considered a match
+    if similarity > 0.44:  # 1 means identical, so 0.6 or above is considered a match
         face_found = True
         print("User face found!")
         box = face.bbox  # Get bounding box of the matched face
