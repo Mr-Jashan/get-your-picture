@@ -3,7 +3,9 @@ import os
 import insightface
 import numpy as np
 from insightface.app import FaceAnalysis
+import time
 
+start_time = time.time()
 # Initialize Face Analysis Model
 app = FaceAnalysis()
 app.prepare(ctx_id=0, det_size=(640, 640))
@@ -63,3 +65,6 @@ for filename in os.listdir(folder_path):
             print(f"User face not found in {filename}.")
 
 print("Completed scanning all images in the folder.")
+end_time = time.time()
+total_time = end_time - start_time
+print(f"Total runtime: {total_time:.2f} seconds")
